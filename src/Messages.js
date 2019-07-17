@@ -28,7 +28,3 @@ export default class Messages extends Component {
         )
     }
 }
-
-{/* <React.Fragment>
-{ item.children ? <Messages children={item.children}/> : null}
-</React.Fragment> */}

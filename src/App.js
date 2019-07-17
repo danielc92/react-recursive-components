@@ -102,7 +102,7 @@ export default class App extends Component {
   render() {
     const {children} = this.state.data
     return (
-      <div className="container" style={{fontFamily: 'sans-serif'}}>
+      <div style={{fontFamily: 'sans-serif'}}>
         <Messages children={children}/>
       </div>
     )
