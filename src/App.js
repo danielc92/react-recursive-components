@@ -1,26 +1,110 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import Messages from './Messages';
+import faker from 'faker';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const {sentence} = faker.lorem;
+const {firstName} = faker.name;
+const {avatar} = faker.image;
+const {number} = faker.random
+
+export default class App extends Component {
+
+  state = {
+    data: {
+      children: [
+        {
+          name: firstName(),
+          avatar: avatar(),
+          likes: number(),
+          votes: number(),
+          message: sentence(),
+          children: [
+            {
+              name: firstName(),
+              avatar: avatar(),
+              likes: number(),
+              votes: number(),
+              message: sentence(),
+              children: [
+                {
+                  name: firstName(),
+                  avatar: avatar(),
+                  likes: number(),
+                  votes: number(),
+                  message: sentence()
+                }, {
+                  name: firstName(),
+                  avatar: avatar(),
+                  likes: number(),
+                  votes: number(),
+                  message: sentence(),
+                  children: [
+                    {
+                      name: firstName(),
+                      avatar: avatar(),
+                      likes: number(),
+                      votes: number(),
+                      message: sentence()
+                    },
+                    {
+                      name: firstName(),
+                      avatar: avatar(),
+                      likes: number(),
+                      votes: number(),
+                      message: sentence()
+                    },{
+                      name: firstName(),
+                      avatar: avatar(),
+                      likes: number(),
+                      votes: number(),
+                      message: sentence()
+                    },{
+                      name: firstName(),
+                      avatar: avatar(),
+                      likes: number(),
+                      votes: number(),
+                      message: sentence()
+                    }
+                  ]
+                }, {
+                  name: firstName(),
+                  avatar: avatar(),
+                  likes: number(),
+                  votes: number(),
+                  message: sentence()
+                }
+              ]
+            }, {
+              name: firstName(),
+              avatar: avatar(),
+              likes: number(),
+              votes: number(),
+              message: sentence()
+            }
+          ]
+        }, {
+          name: firstName(),
+          avatar: avatar(),
+          likes: number(),
+          votes: number(),
+          message: sentence()
+        }, {
+          name: firstName(),
+          avatar: avatar(),
+          likes: number(),
+          votes: number(),
+          message: sentence()
+        }
+      ]
+    }
+  }
+
+  render() {
+    const {children} = this.state.data
+    return (
+      <div className="container" style={{fontFamily: 'sans-serif'}}>
+        <Messages children={children}/>
+      </div>
+    )
+  }
 }
-
-export default App;
